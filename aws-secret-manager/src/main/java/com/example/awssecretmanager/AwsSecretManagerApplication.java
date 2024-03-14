@@ -27,7 +27,7 @@ public class AwsSecretManagerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		AWSSecretsManager client=	AWSSecretsManagerClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials())).withRegion("ca-central-1").build();
+		AWSSecretsManager client=AWSSecretsManagerClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials())).withRegion("ca-central-1").build();
 		GetSecretValueRequest secretValueRequest=new GetSecretValueRequest().withSecretId("secretName");
 		GetSecretValueResult secretValueResult=client.getSecretValue(secretValueRequest);
 		String secretValue=secretValueResult.getSecretString();
